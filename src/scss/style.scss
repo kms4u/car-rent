@@ -1,0 +1,766 @@
+@import 'normalize.css';
+@import 'config.scss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;900&display=swap');
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    line-height: 1
+}
+
+ol,
+ul {
+    list-style: none
+}
+
+blockquote,
+q {
+    quotes: none
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $accent;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #6F8090;
+}
+
+#app {
+    width: 100%;
+    background: linear-gradient(to right, #3D4248, #6F8090);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .rentButHover {
+        padding: 5px 6px 5px 6px;
+        border: $accent 3px solid;
+        border-radius: 6px;
+        cursor: pointer;
+        background-color: $accent;
+        width: 100%;
+    }
+
+    header {
+        width: 80%;
+        height: auto;
+        background-color: $cardCol;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+
+        .logoName {
+            font-weight: 900;
+            font-size: 30px;
+            color: $accent;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+
+            li {
+                & a {
+                    text-decoration: none;
+                    color: $accent;
+                    cursor: pointer;
+                    margin: 0 20px 0 20px;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .signUp {
+            border-radius: 5px;
+            padding: 5px 7px 5px 7px;
+            background: none;
+            border: 2px solid $accent;
+            margin-right: 10px;
+            font-weight: 400;
+            color: black;
+            cursor: pointer;
+            transition-duration: 300ms;
+
+            &:hover {
+                scale: 1.05;
+            }
+        }
+
+        .logIn {
+            border-radius: 5px;
+            padding: 5px 12px 5px 12px;
+            background: $accent;
+            border: 2px solid $accent;
+            margin-left: 10px;
+            font-weight: 400;
+            color: white;
+            cursor: pointer;
+            transition-duration: 300ms;
+
+            &:hover {
+                scale: 1.05;
+            }
+        }
+    }
+
+    .headerNav {
+        width: 80%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .catalogue {
+            font-weight: 900;
+            font-size: 35px;
+            color: white;
+            margin: 100px 0 100px 0;
+        }
+    }
+
+    .card:hover {
+        scale: 1.1;
+    }
+
+    .card:hover>.car {
+        scale: 1.5;
+    }
+
+    .wrapper {
+        width: 80%;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+        .card {
+            width: 200px;
+            background-color: $cardCol;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 0 20px 40px 20px;
+            transition-duration: 300ms;
+
+            .carName {
+                font-weight: 900;
+                font-size: 25px;
+            }
+
+            .payPerDay {
+                margin-top: 20px;
+
+                .boldText {
+                    font-weight: 900;
+                }
+            }
+
+            .car {
+                width: 200px;
+                margin: 30px 0 30px 0;
+                transition-duration: 300ms;
+
+            }
+
+            .characteristics {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                .wheel {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    margin: 0 10px 0 0;
+
+                    & img {
+                        width: 30px;
+                        height: 30px;
+                    }
+
+                    & p {
+                        font-size: 12px;
+                        margin-top: 5px;
+                    }
+                }
+
+                .speed {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    margin: 0 10px 0 0;
+
+                    & img {
+                        width: 30px;
+                        height: 30px;
+                    }
+
+                    & p {
+                        font-size: 12px;
+                        margin-top: 5px;
+                    }
+                }
+
+                .rent {
+                    padding: 5px 6px 5px 6px;
+                    border: $accent 3px solid;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    transition-duration: 300ms;
+
+                    &:hover {
+                        color: white;
+                        background-color: $accent;
+                    }
+                }
+            }
+        }
+    }
+
+    .aboutUs {
+        width: 80%;
+        margin: 0 0px 70px 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .about {
+            .aboutH1 {
+                font-weight: 900;
+                font-size: 35px;
+                color: white;
+                margin: 100px 0 50px 0;
+            }
+        }
+
+        & p {
+            width: 90%;
+            color: white;
+            font-weight: 200;
+            font-size: 20px;
+            line-height: 20px;
+        }
+
+        .list {
+            .contsctsH1 {
+                font-weight: 900;
+                font-size: 35px;
+                color: white;
+                margin: 100px 0 50px 0;
+            }
+
+            .openTime {
+                li {
+                    color: white;
+                    font-weight: 200;
+                    font-size: 20px;
+                    margin-top: 10px;
+                }
+            }
+        }
+
+        .phone {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            margin: 15px 0 15px 0;
+
+            & img {
+                width: 30px;
+            }
+
+            & span {
+                color: white;
+                font-size: 20px;
+                font-weight: 200;
+                margin: 0 15px 0 15px;
+            }
+        }
+
+        .email {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            margin: 15px 0 15px 0;
+
+            & img {
+                width: 30px;
+            }
+
+            & span {
+                color: white;
+                font-size: 20px;
+                font-weight: 200;
+                margin: 0 15px 0 15px;
+            }
+        }
+
+        .adress {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            margin: 15px 0 15px 0;
+
+            & img {
+                width: 30px;
+            }
+
+            & span {
+                color: white;
+                font-size: 20px;
+                font-weight: 200;
+                margin: 0 15px 0 15px;
+                line-height: 30px;
+            }
+        }
+    }
+
+    .modalRent.open {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .modalRent {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: #4444448d;
+        transition-duration: 300ms;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.5s;
+
+        .modal {
+            text-align: left;
+            padding: 20px;
+            border-radius: 20px;
+            background-color: $cardCol;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            & .p1 {
+                font-size: 30px;
+                margin: 20px 0 20px 0;
+                font-weight: 900;
+            }
+
+            & .p2 {
+                font-size: 20px;
+                margin: 20px 0 20px 0;
+                text-align: center;
+            }
+
+            & .p3 {
+                font-size: 20px;
+                margin: 20px 0 20px 0;
+            }
+        }
+
+        .closeModal {
+            padding: 8px 20px 8px 20px;
+            background: $accent;
+            border: $accent 1px solid;
+            border-radius: 10px;
+            transition-duration: 300ms;
+
+            &:hover {
+                scale: 1.1;
+            }
+        }
+    }
+
+    .modalSignUp.open {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .modalSignUp {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: #4444448d;
+        transition-duration: 300ms;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.5s;
+
+        .modalSU {
+            padding: 20px;
+            border-radius: 20px;
+            background-color: $cardCol;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            .SU {
+                font-size: 20px;
+                display: flex;
+                flex-direction: column;
+                margin: 10px 0 10px 0;
+
+                label {
+                    margin: 0 0 8px 0;
+                    font-weight: 900;
+                }
+
+                input {
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                }
+            }
+
+            .submitBtn {
+                width: 100%;
+                background-color: $accent;
+                border-radius: 8px;
+                padding: 6px 0 6px 0;
+                font-weight: 400;
+                border: 0;
+                transition-duration: 300ms;
+                cursor: pointer;
+
+                &:hover {
+                    box-shadow: 0 0 10px 0 $accent;
+                }
+            }
+        }
+    }
+
+    .modalLogIn.open {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .modalLogIn {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: #4444448d;
+        transition-duration: 300ms;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.5s;
+
+        .modalLI {
+            padding: 20px;
+            border-radius: 20px;
+            background-color: $cardCol;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            .LI {
+                font-size: 20px;
+                display: flex;
+                flex-direction: column;
+                margin: 10px 0 10px 0;
+
+                label {
+                    margin: 0 0 8px 0;
+                    font-weight: 900;
+                }
+
+                input {
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                }
+            }
+
+            .logInBtn {
+                width: 100%;
+                background-color: $accent;
+                border-radius: 8px;
+                padding: 6px 0 6px 0;
+                font-weight: 400;
+                border: 0;
+                transition-duration: 300ms;
+                cursor: pointer;
+
+                &:hover {
+                    box-shadow: 0 0 10px 0 $accent;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 979px) {
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .aboutUs {
+            flex-direction: column;
+
+            p {
+                font-size: 15px;
+            }
+        }
+
+        .modalRent .modal {
+            width: 80%;
+
+            .p1 {
+                font-size: 22px;
+            }
+
+            .p2 {
+                font-size: 17px;
+            }
+        }
+
+        header {
+            & {
+                padding: 0;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .logoName {
+                font-size: 20px;
+                margin: 15px 0 8px 0;
+            }
+
+            .navbar {
+                flex-direction: row;
+                margin: 10px 0 10px 0;
+            }
+
+            .register {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                .signUp {
+                    margin: 8px 8px 10px 0;
+                }
+
+                .logIn {
+                    margin: 8px 0 10px 8px;
+                }
+            }
+        }
+    }
+    @media (min-width: 980px) and (max-width: 1440px) {
+        .wrapper {
+            display: grid;
+            justify-items: center;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .aboutUs {
+            flex-direction: column;
+
+            p {
+                font-size: 15px;
+            }
+        }
+
+        .modalRent .modal {
+            width: 80%;
+
+            .p1 {
+                font-size: 22px;
+            }
+
+            .p2 {
+                font-size: 17px;
+            }
+        }
+
+        header {
+            & {
+                padding: 0;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .logoName {
+                font-size: 20px;
+                margin: 15px 0 8px 0;
+            }
+
+            .navbar {
+                flex-direction: row;
+                margin: 10px 0 10px 0;
+            }
+
+            .register {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                .signUp {
+                    margin: 8px 8px 10px 0;
+                }
+
+                .logIn {
+                    margin: 8px 0 10px 8px;
+                }
+            }
+        }
+    }
+}
