@@ -23,22 +23,37 @@ function closeModal() {
 
 // sig Up function
 document.getElementById('signUp').addEventListener('click', opensginUP);
+
 function opensginUP() {
     document.getElementById('modalSignUp').classList.add("open")
 }
 
 document.getElementById('submit').addEventListener('click', closeSigUp);
-function closeSigUp() {
-    document.getElementById('modalSignUp').classList.remove("open")
-}
+let message = document.getElementById('message');
 
+let text = document.getElementById('text');
+let tel = document.getElementById('tel');
+let email = document.getElementById('email');
+let password = document.getElementById('password')
+
+function closeSigUp() {
+    if (message.innerHTML == '' && text.value != '' && tel.value != '' && email.value != '' && password.value != '') {
+        document.getElementById('modalSignUp').classList.remove("open")
+    }
+}
 // log in function
 document.getElementById('logIn').addEventListener('click', openLogIn);
+
 function openLogIn() {
     document.getElementById('modalLogIn').classList.add("open")
 }
 
+let email2 = document.getElementById('email2');
+let password2 = document.getElementById('password2')
 document.getElementById('logInBtn').addEventListener('click', closeLogIn);
+
 function closeLogIn() {
-    document.getElementById('modalLogIn').classList.remove("open")
+    if (email2.value != '' && password2.value != '') {
+        document.getElementById('modalLogIn').classList.remove("open")
+    }
 }

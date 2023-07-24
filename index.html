@@ -261,41 +261,75 @@
     </div>
     <div class="modalSignUp" id="modalSignUp">
       <div class="modalSU">
-        <div class="SU">
-          <label for="text">Enter your name</label>
-          <input type="text" name="text" id="text" placeholder="Name">
-        </div>
-        <div class="SU">
-          <label for="tel">Enter your phone</label>
-          <input type="tel" name="tel" id="tel" placeholder="+7 (xxx) xxx xx xx">
-        </div>
-        <div class="SU">
-          <label for="email">Enter your Email</label>
-          <input type="email" name="email" id="email" placeholder="example@email.com">
-        </div>
-        <div class="SU">
-          <label for="password">Enter your password</label>
-          <input type="password" name="password" id="password" placeholder="********">
-        </div>
-        <button type="submit" id="submit" class="submitBtn">Sign Up</button>
+        <form action="" method="post">
+          <div class="message" id="message"></div>
+          <div class="SU">
+            <label for="text">Enter your name</label>
+            <input required type="text" name="text" id="text" placeholder="Name">
+          </div>
+          <div class="SU">
+            <label for="tel">Enter your phone</label>
+            <input required type="tel" name="tel" id="tel" placeholder="xxx-xxx-xxxx">
+          </div>
+          <div class="SU">
+            <label for="email">Enter your Email</label>
+            <input required type="email" name="email" id="email" placeholder="example@email.com">
+          </div>
+          <div class="SU">
+            <label for="password">Enter your password</label>
+            <input required type="password" name="password" id="password" placeholder="********">
+          </div>
+          <button type="submit" id="submit" class="submitBtn" onclick="checkTel(); checkEmail();">Sign Up</button>
+        </form>
       </div>
     </div>
     <div class="modalLogIn" id="modalLogIn">
       <div class="modalLI">
-        <div class="LI">
-          <label for="email">Enter your Email</label>
-          <input type="email" name="email" id="email2" placeholder="youremail@email.com">
-        </div>
-        <div class="LI">
-          <label for="password">Enter your password</label>
-          <input type="password" name="password" id="password2" placeholder="********">
-        </div>
-        <button type="submit" id="logInBtn" class="logInBtn">Log In</button>
+        <form action="" method="post">
+          <div class="LI">
+            <label for="email2">Enter your Email</label>
+            <input required type="email" name="email" id="email2" placeholder="youremail@email.com">
+          </div>
+          <div class="LI">
+            <label for="password2">Enter your password</label>
+            <input required type="password" name="password" id="password2" placeholder="********">
+          </div>
+          <button type="submit" id="logInBtn" class="logInBtn" onclick="checkTel(); checkEmail()">Log In</button>
+        </form>
+
       </div>
     </div>
 
   </div>
   <script type="module" src="src/js/main.js"></script>
+
+  <script>
+    function checkTel() {
+      let symbols = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+      let telNubmer = document.getElementById('tel').value;
+      let valid = symbols.test(telNubmer);
+      if (valid == false) {
+        output = 'Phone number entered incorrectly!';
+      } else {
+        output = ''
+      }
+      document.getElementById('message').innerHTML = output;
+      return valid
+    }
+
+    function checkEmail() {
+      let symbols = /^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i;
+      let emailValue = document.getElementById('email').value;
+      let valid = symbols.test(emailValue);
+      if (valid == false) {
+        output = 'Email entered incorrectly!';
+      } else {
+        output = ''
+      }
+      document.getElementById('message').innerHTML = output;
+      return valid
+    }
+  </script>
 
 </body>
 
